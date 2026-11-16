@@ -1,0 +1,182 @@
+
+/*
+ *	CSS style sheet definitions
+ */
+@font-face
+{
+	font-display: fallback;
+	font-family: 'Barna-Regular';
+	src: url('font/Barna-Regular.woff2');
+}
+
+/*
+ * 	It's necessary using :root and :host
+ */
+:root,:host
+{
+	/*
+	 *	Support light and dark mode
+	 */
+	color-scheme: light dark;
+
+	/*
+	 *	Basic font declarations
+	 */
+	--fs-text: 1.125rem;
+	--fs-header: 2.25rem;
+	--font-family: Barna-Regular;
+
+	/*
+	 *	Use HSL-Format for this basic colors
+	 */
+	--dark-color: 0,7%,0%;
+	--light-color: 0,0%,100%;
+	--primary-color: 200,5%,90%;
+	--secondary-color: 210,25%,25%;
+}
+
+/*
+ *	Adapt font-sizes for smartphone displays
+ */
+:is(.phone,.tablet) .override
+{
+}
+body
+{
+    line-height: 1.25;
+	font-weight: var(--fw-300);
+	font-size: var(--font-size);
+	font-family: var(--font-family);
+	-webkit-text-size-adjust: none;
+	background-image: linear-gradient(
+		90deg, var(--primary-dark) 0%,
+		var(--primary-amid) 50%,
+		var(--primary-light) 80%);
+}
+
+/*
+ *	Navigation
+ */
+.override .nav-label .nav-icon-open svg
+{
+	stroke: hsl(var(--light-color));
+}
+.override .nav-label .nav-icon-close svg
+{
+	stroke: hsl(var(--light-color));
+}
+.override .nav-grid
+{
+	transition: all .6s ease-in-out;
+}
+.override :target .nav-grid
+{
+	height: 21rem;
+	transition: all .6s ease-in-out;
+	border: 1px solid var(--dark-light);
+}
+.override .nav-grid a.shape-nav
+{
+	color: white;
+	text-decoration: none;
+	border-bottom: 1px solid var(--dark-light);
+}
+.override .nav-grid a.shape-nav:hover
+{
+	color: var(--primary-dark);
+}
+
+/*
+ *  Note: Reduced distance for desktops to display
+ *  all menu items on iPad Pro
+ */
+.desktop .override .nav-grid a.shape-nav
+{
+	padding: 1rem 1.5rem;
+}
+
+/*
+ *	Design shape buttons
+ */
+.override a.shape
+{
+	border-radius: .125rem;
+	color: var(--light-dark);
+	padding: .5rem 1.25rem;
+	background-color: var(--secondary-dark);
+}
+.override a.shape:hover
+{
+	color: var(--light);
+}
+
+/*
+ *  Adapt donut properties
+ */
+@keyframes spin-it
+{
+	from {--val: 0; --deg: 0%;}
+	/* Necessary for firefox */
+	12% {--val: 25; --deg: 12%;}
+	25% {--val: 51; --deg: 25%;}
+	38% {--val: 76; --deg: 38%;}
+	50% {--val: 102; --deg: 50%;}
+	62% {--val: 126; --deg: 62%;}
+	75% {--val: 153; --deg: 75%;}
+	87% {--val: 178; --deg: 87%;}
+	/* End of Necessary for firefox */
+	to {--val: 204; --deg: 100%;}
+}
+.override donut.props-1
+{
+    --unit: '%';
+	--value: 98.9;
+	--percent: 98.9%;
+	--prefix: 'Client\a Satisfaction';
+}
+.override donut.props-2
+{
+	--value: 118;
+	--percent: 69%;
+	--prefix: 'Yacht &\a Sailing Trips';
+}
+.override donut.props-3
+{
+	--value: 182;
+	--percent: 57%;
+	--prefix: 'Best Horse Riding Trips';
+}
+.override donut.props-4
+{
+	--value: 203;
+	--percent: 77%;
+	--prefix: 'Locations in 93 Countries';
+}
+
+/*
+ *	Slider control color
+ */
+.override slider > label svg
+{
+	fill: hsl(var(--light-color));
+}
+
+/*
+ *	Footer
+ */
+.override footer a
+{
+	color: inherit;
+	padding: .125rem 0;
+}
+.override footer h5
+{
+	font-size: .75rem;
+}
+
+/*
+ *	Colors on dark mode
+ */
+@media (prefers-color-scheme: dark)
+{
+}
