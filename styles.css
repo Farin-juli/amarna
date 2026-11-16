@@ -103,6 +103,7 @@ body
 	border-radius: .125rem;
 	color: var(--light-dark);
 	padding: .5rem 1.25rem;
+	width: auto!important;
 	background-color: var(--secondary-dark);
 }
 .override a.shape:hover
